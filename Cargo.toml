@@ -1,0 +1,24 @@
+[package]
+name = "just-voip"
+version = "0.1.0"
+edition = "2021"
+
+[[bin]]
+name = "just-voip"
+path = "src/main.rs"
+
+[[bin]]
+name = "test_audio"
+path = "src/test_audio.rs"
+
+[dependencies]
+cpal = "0.15"
+egui = "0.31"
+eframe = { version = "0.31", default-features = false, features = ["glow", "default_fonts"] }
+rand = "0.9"
+
+[profile.release]
+opt-level = "z"
+lto = true
+codegen-units = 1
+strip = true
